@@ -52,3 +52,11 @@ class LoginAttempt(db.Model):
             'user_agent': self.user_agent,
             'success': self.success
         }
+class Translation(db.Model):
+    __tablename__ = 'translations'
+
+    id = db.Column(db.Integer, primary_key=True)
+    original_text = db.Column(db.Text, nullable=False)
+    translated_text = db.Column(db.Text, nullable=False)
+    dialect = db.Column(db.String(50), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
